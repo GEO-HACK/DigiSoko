@@ -1,6 +1,14 @@
 {%  extends 'DigiSoko/base.html' %}
 
 {% block content %}
+<div class="category-view">
+  
+  <a href="{% url 'home' %}">All</a>
+  {% for category in categorys %}
+  <a href="{% url 'home' %}?q={{category.name}}">{{category.name}}</a>
+  {% endfor %}
+</div>
+<div>
    {% for product in products %}
     <div class ="product-view">
     <div class="card" style="width: 10rem;">
@@ -14,4 +22,5 @@
         </div>
     </div>
     {% endfor %}
+</div>
 {% endblock %}
