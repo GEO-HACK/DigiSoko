@@ -1,0 +1,15 @@
+{% for product in products %}
+<div class ="product-view">
+<div class="card" style="width: 12rem;">
+    <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">Kshs.{{ product.price }}</p>
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+      
+    </div>
+    </div>
+</div>
+{% endfor %}
+

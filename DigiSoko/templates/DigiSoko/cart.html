@@ -1,0 +1,86 @@
+{% extends 'DigiSoko/base.html' %}
+
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .quantity {
+        width: 50px;
+    }
+
+    #purchase-btn {
+        margin-top: 20px;
+    }
+</style>
+<div>
+    <h1>Cart</h1>
+    <a href="{% url 'home' %}" class="btn btn-primary">Keep Shopping</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th> <!-- Added new column for total price -->
+            <!-- Add other product details here if needed -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td><input type="number" min="1" value="1" class="quantity" data-price="{{ item.price }}"></td>
+            <td>{{ item.price }}</td>
+            <td class="total-price">{{ item.price }}</td> <!-- Display total price here -->
+            <!-- Display other product details here if needed -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div id="total-container">
+    <span>Total:</span>
+    <span id="total-amount"></span>
+</div>
+
+<button id="purchase-btn" class="btn btn-success">Purchase</button>
+
+<script>
+    // Add event listener for quantity change
+    document.querySelectorAll('.quantity').forEach(input => {
+        input.addEventListener('change', updateTotal);
+    });
+
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.quantity').forEach(input => {
+            const quantity = input.value;
+            const price = parseFloat(input.dataset.price);
+            total += quantity * price;
+        });
+        document.getElementById('total-amount').textContent = total.toFixed(2);
+    }
+
+    // Trigger updateTotal on page load
+    updateTotal();
+</script>
+{% endblock %}

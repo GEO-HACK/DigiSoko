@@ -1,0 +1,96 @@
+.body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(147, 102, 46, 0.937);
+    width: 100vw;
+}
+
+.product-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Each column will fit the width of the card */
+    padding: 10px;
+    margin-top: 20px;
+    gap: 1rem;
+    width: 100%;
+    
+}
+
+.category-view {
+    padding: 10px;
+    background-color: white; /* Light gray background */
+    border-right: 1px solid #dee2e6; /* Right border */
+    position: fixed; /* Fixed position */
+    top: 70px; /* Adjust based on navbar height */
+    left: 0; /* Start at the left edge of the page */
+    bottom: 0; /* Extend to the bottom */
+    overflow-y: auto; /* Add scrollbar if needed */
+    width: 200px; /* Set fixed width */
+    border-color: black;
+    border-radius: 20px;
+    color: antiquewhite; 
+    }
+
+
+/* Adjust the top position and width as needed */
+
+.category-view a {
+    display: block;
+    margin-bottom: 5px;
+    color: whitesmoke /* Text color */
+   
+}
+
+.category-view a:hover {
+    text-decoration: underline;
+}
+
+/* Style for product view */
+.product-view {
+    margin-left: 80px; /* Adjust according to category view width */
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    width: 100%; /* Full width of the grid cell */
+    border: 1px solid #dee2e6; /* Border color */
+ 
+    
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+    width: 100vw;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+    
+}
+
+.card-body {
+    padding: 1rem;
+    border-color: black;
+}
+
+.navbar {
+    width: 100vw;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.tags{
+    color:blue;
+}

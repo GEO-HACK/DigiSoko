@@ -1,26 +1,12 @@
 {%  extends 'DigiSoko/base.html' %}
 
 {% block content %}
-<div class="category-view">
+
+{% include 'DigiSoko/category_component.html' %}
+
+<div class="product-body">
   
-  <a href="{% url 'home' %}">All</a>
-  {% for category in categorys %}
-  <a href="{% url 'home' %}?q={{category.name}}">{{category.name}}</a>
-  {% endfor %}
-</div>
-<div>
-   {% for product in products %}
-    <div class ="product-view">
-    <div class="card" style="width: 10rem;">
-        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">Kshs.{{ product.price }}</p>
-            
-        </div>
-        </div>
-    </div>
-    {% endfor %}
+  {% include 'DigiSoko/product_component.html' %}
+
 </div>
 {% endblock %}
