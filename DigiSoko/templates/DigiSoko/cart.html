@@ -50,7 +50,7 @@
             <td>{{ item.name }}</td>
             <td><input type="number" min="1" value="1" class="quantity" data-price="{{ item.price }}"></td>
             <td>{{ item.price }}</td>
-            <td class="total-price">{{ item.price }}</td> <!-- Display total price here -->
+            <td class="total-price">0.00</td> <!-- Initialize to 0.00 -->
             <!-- Display other product details here if needed -->
         </tr>
         {% endfor %}
@@ -59,7 +59,7 @@
 
 <div id="total-container">
     <span>Total:</span>
-    <span id="total-amount"></span>
+    <span id="total-amount">0.00</span> <!-- Initialize to 0.00 -->
 </div>
 
 <button id="purchase-btn" class="btn btn-success">Purchase</button>
@@ -67,20 +67,22 @@
 <script>
     // Add event listener for quantity change
     document.querySelectorAll('.quantity').forEach(input => {
-        input.addEventListener('change', updateTotal);
+        input.addEventListener('change', updateTotals);
     });
 
-    function updateTotal() {
-        let total = 0;
-        document.querySelectorAll('.quantity').forEach(input => {
-            const quantity = input.value;
-            const price = parseFloat(input.dataset.price);
-            total += quantity * price;
+    function updateTotals() {
+        let overallTotal = 0;
+        document.querySelectorAll('tbody tr').forEach(row => {
+            const quantity = parseInt(row.querySelector('.quantity').value);
+            const price = parseFloat(row.querySelector('.quantity').dataset.price);
+            const totalPrice = quantity * price;
+            row.querySelector('.total-price').textContent = totalPrice.toFixed(2);
+            overallTotal += totalPrice;
         });
-        document.getElementById('total-amount').textContent = total.toFixed(2);
+        document.getElementById('total-amount').textContent = overallTotal.toFixed(2);
     }
 
-    // Trigger updateTotal on page load
-    updateTotal();
+    // Trigger updateTotals on page load
+    updateTotals();
 </script>
 {% endblock %}

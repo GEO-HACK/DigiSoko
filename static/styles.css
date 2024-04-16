@@ -2,7 +2,7 @@
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgba(147, 102, 46, 0.937);
+    background-color: rgba(225, 227, 212, 0.97);
     width: 100vw;
 }
 
@@ -93,4 +93,7 @@
 }
 .tags{
     color:blue;
+}
+.cart-icon {
+    filter: invert(65%) sepia(98%) saturate(4158%) hue-rotate(185deg) brightness(93%) contrast(94%);
 }
