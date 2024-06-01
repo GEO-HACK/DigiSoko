@@ -1,8 +1,14 @@
-{% extends 'DigiSoko/base.html' %}
+{% extends 'DigiSoko/base.html' %} {% block content %}
 
-{% block content %}
-
-    <h1>About Page</h1>
-    <p>This is the about page of DigiSoko</p>
+<h1>About <a class="navbar-brand" href="{% url 'home'%}">DigiSoko</a></h1>
+<p>
+  The website is designed for shopping and provides users with a seamless and
+  intuitive platform to browse, search, and purchase products online. The
+  website offers features such as user authentication, product categorization,
+  shopping cart functionality, secure payment processing, and order management.
+  With a user-friendly interface and responsive design, customers can easily
+  explore various products, add them to their cart, and complete transactions,
+  ensuring a convenient and enjoyable shopping experience.
+</p>
 
 {% endblock %}

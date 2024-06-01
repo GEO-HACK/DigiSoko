@@ -1,12 +1,6 @@
-{%  extends 'DigiSoko/base.html' %}
+{% extends 'DigiSoko/base.html' %} {% block content %}
+<div>{% include 'DigiSoko/category_component.html' %}</div>
+<hr />
 
-{% block content %}
-
-{% include 'DigiSoko/category_component.html' %}
-
-<div class="product-body">
-  
-  {% include 'DigiSoko/product_component.html' %}
-
-</div>
+<div class="product-body">{% include 'DigiSoko/product_component.html' %}</div>
 {% endblock %}
