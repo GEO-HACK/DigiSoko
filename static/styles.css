@@ -2,7 +2,7 @@
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #3e2723;
+  background-color:#fff7e4;
   width: 100vw;
 }
 
@@ -50,8 +50,12 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #558b2f;
+  background-color: #ffe18f;
   color: black;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .card-img-top {
@@ -83,14 +87,14 @@
   box-sizing: border-box;
 }
 .tags {
-  color: blue;
+  color:#266f26;
 }
 .cart-icon {
   filter: invert(65%) sepia(98%) saturate(4158%) hue-rotate(185deg)
     brightness(93%) contrast(94%);
 }
 .btn-category {
-  background-color: #333;
+  background-color:#2a842a;
   color: white;
   border: none;
   padding: 10px;
@@ -98,5 +102,11 @@
   cursor: pointer;
 }
 .btn-category:hover {
-  background-color: #555;
+  background-color:#266f26;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6f6106;
 }

@@ -48,4 +48,33 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItems.appendChild(row);
     });
   }
+
+  const boxes = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.style.opacity = 1; // Reveal the element
+          }
+      });
+  });
+
+  // Observe each box
+  boxes.forEach(card => {
+      observer.observe(card);
+  });  
+
+//scroll reveal for the products from bottom to top
+ScrollReveal(
+    {
+        origin: 'bottom',
+        distance: '50px',
+        duration: 1000,
+        easing: 'ease-in-out',
+        reset: true
+    }
+).reveal('.card', {interval: 200}
+
+);
+
+
   
