@@ -64,17 +64,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });  
 
 //scroll reveal for the products from bottom to top
-ScrollReveal(
-    {
-        origin: 'bottom',
-        distance: '50px',
-        duration: 1000,
-        easing: 'ease-in-out',
-        reset: true
-    }
-).reveal('.card', {interval: 200}
+// ScrollReveal(
+//     {
+//         origin: 'bottom',
+//         distance: '50px',
+//         duration: 1000,
+//         easing: 'ease-in-out',
+//         reset: true
+//     }
+// ).reveal('.card', {interval: 200}
 
-);
+// );
 
 
   
