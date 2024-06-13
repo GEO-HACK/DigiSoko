@@ -25,7 +25,7 @@ def create_product(request):
         form=ProductForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse('{% url "home" %}')
+            return HttpResponse(render(request,'DigiSoko/home.html'))
     context={'form':form}
 
 
