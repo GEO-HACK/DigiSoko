@@ -1,0 +1,338 @@
+{% extends 'DigiSoko/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+#logo {
+    line-height: 60px;
+    margin-left: 40px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+#logo:hover {
+    color: #2980b9;
+}
+
+#logo-s {
+    color: #ecf0f1;
+    margin-left: 5px;
+}
+
+#logo:hover #logo-s {
+    color: #bdc3c7;
+}
+
+.sign {
+    float: right;
+    line-height: 60px;
+    margin-right: 40px;
+}
+
+.sign a {
+    color: #fff;
+    line-height: 60px;
+    text-decoration: none;
+}
+
+.act {
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 6px 15px;
+}
+
+.sign a:hover {
+    color: #0fb2db;
+    border-color: #0fb2db;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    background: #2c3e56;
+}
+
+.myslider {
+    height: 655px;
+    display: none;
+    overflow: hidden;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+.prev:hover, .next:hover {
+    background: #2980b9;
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}
+
+.dotsbox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.active, .dot:hover {
+    background: #3498db;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.8;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: moveText;
+    animation-duration: 20s; /* Slower animation */
+    animation-timing-function: ease-in-out; /* Smooth start and end */
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(-100%); /* Start off-screen left */
+    }
+    100% {
+        transform: translateX(100%); /* Move off-screen right */
+    }
+}
+
+.txt h1 {
+    color: #3498db;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.txt p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+img {
+    transform: scale(1.5, 1.5);
+    animation-name: zoomin;
+    animation-duration: 40s;
+}
+
+@keyframes zoomin {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(1.5, 1.5);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .myslider {
+        height: 500px;
+    }
+
+    .txt {
+        font-size: 20px;
+        animation-duration: 16s; /* Adjust duration for smaller screens */
+    }
+
+    @keyframes moveText {
+        0% {
+            transform: translateX(-100%); /* Start off-screen left */
+        }
+        100% {
+            transform: translateX(100%); /* Move off-screen right */
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .txt {
+        font-size: 15px;
+        animation-duration: 12s; /* Adjust duration for smallest screens */
+    }
+}
+
+</style>
+
+<div class="slider">
+    <div class="myslider" style="display: block;">
+      <div class="txt">
+        <h1>Image!</h1>
+        <p>
+          web Developer<br />Subscribe to our newsletter and get the latest
+          news and updates /
+        </p>
+      </div>
+    
+    <img src="{% static 'image1.webp' %}" style="width: 100%; height: 100%" />
+    </div>
+    <div class="myslider fade">
+      <div class="txt">
+        <h1>Image2</h1>
+        <p>
+          web Developer<br />Subscribe to our newsletter and get the latest
+          news and updates /
+        </p>
+      </div>
+    
+    <img src="{% static 'image2.avif' %}" style="width: 100%; height: 100%" />
+    </div>
+    <div class="myslider">
+      <div class="txt">
+        <h1>Image3</h1>
+        <p>
+          web Developer<br />Subscribe to our newsletter and get the latest
+          news and updates /
+        </p>
+      </div>
+    
+    <img src="%{ static 'image3.avif' %}" style="width: 100%; height: 100%" />
+    </div>
+    <div class="myslider fade">
+      <div class="txt">
+        <h1>Image4</h1>
+        <p>
+          web Developer<br />Subscribe to our newsletter and get the latest
+          news and updates /
+        </p>
+      </div>
+    
+    <img src="{% static 'image4.jpeg' %}" style="width: 100%; height: 100%" />
+    </div>
+    <div class="myslider fade">
+      <div class="txt">
+        <h1>Image5</h1>
+        <p>
+          web Developer<br />Subscribe to our newsletter and get the latest
+          news and updates /
+        </p>
+      </div>
+    
+    <img src="{% static 'image5.avif' %}" style="width: 100%; height: 100%" />
+    </div>
+
+    <a  class="next" onclick="plusSlides(1)">&#10095</a>
+    <a  class="prev" onclick="plusSlides(1)">&#10094</a>
+
+      <div class="dotsbox"  style="text-align: center;">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+ 
+  </div>
+  <script>
+    const myslde = document.querySelectorAll(".myslider");
+const dots = document.querySelectorAll(".dot");
+
+let counter = 1;
+slidefun(counter);
+
+let timer = setInterval(autoslide, 8000);
+
+function autoslide() {
+  counter += 1;
+  slidefun(counter);
+}
+
+function plusSlides(n) {
+  counter += n;
+  slidefun(counter);
+  resetTimer();
+}
+
+function currentSlide(n) {
+  counter = n;
+  slidefun(counter);
+  resetTimer();
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  timer = setInterval(autoslide, 8000);
+}
+
+function slidefun(n) {
+  let i;
+  for (i = 0; i < myslde.length; i++) {
+    myslde[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+  if (n > myslde.length) {
+    counter = 1;
+  }
+  if (n < 1) {
+    counter = myslde.length;
+  }
+  myslde[counter - 1].style.display = "block";
+  dots[counter - 1].classList.add("active");
+}
+
+  </script>
+
+{% endblock %}

@@ -40,7 +40,7 @@
       style="background-color: #5c530b"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home'%}">DigiSoko</a>
+        <a class="navbar-brand" href="{% url 'main'%}">DigiSoko</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -54,6 +54,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}"
+                >Products</a
+              >
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'create_product' %}"
                 >Add Product</a

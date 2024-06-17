@@ -4,6 +4,9 @@ from .models import *
 from django.db.models import Q
 from .forms import *
 
+def main(request):
+    return render(request,'DigiSoko/main.html')
+
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     products=Products.objects.filter(Q(Type__name__icontains=q)|
