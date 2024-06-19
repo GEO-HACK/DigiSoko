@@ -2,70 +2,18 @@
 {% load static %}
 {% block content %}
 <style>
-    * {
+  body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     box-sizing: border-box;
-}
-
-header {
-    height: 60px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-}
-
-#logo {
-    line-height: 60px;
-    margin-left: 40px;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 30px;
-    font-weight: bold;
-    color: #3498db;
-}
-
-#logo:hover {
-    color: #2980b9;
-}
-
-#logo-s {
-    color: #ecf0f1;
-    margin-left: 5px;
-}
-
-#logo:hover #logo-s {
-    color: #bdc3c7;
-}
-
-.sign {
-    float: right;
-    line-height: 60px;
-    margin-right: 40px;
-}
-
-.sign a {
-    color: #fff;
-    line-height: 60px;
-    text-decoration: none;
-}
-
-.act {
-    border: 2px solid #fff;
-    border-radius: 50px;
-    padding: 6px 15px;
-}
-
-.sign a:hover {
-    color: #0fb2db;
-    border-color: #0fb2db;
-}
-
+    font-family: Arial, sans-serif;
+  }
+/* Carousel Styles */
 .slider {
-    position: relative;
-    width: 100%;
+    position: absolute; /* Changed from absolute to relative */
+    overflow: hidden;
+    left: 0;
+    width: 100VW;
     background: #2c3e56;
 }
 
@@ -136,14 +84,11 @@ header {
     }
 }
 
-.txt {
+.txt, .txt1 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation-name: moveText;
-    animation-duration: 20s; /* Slower animation */
-    animation-timing-function: ease-in-out; /* Smooth start and end */
     text-align: center;
     color: #fff;
     font-size: 30px;
@@ -151,27 +96,19 @@ header {
     z-index: 2;
 }
 
-@keyframes moveText {
-    0% {
-        transform: translateX(-100%); /* Start off-screen left */
-    }
-    100% {
-        transform: translateX(100%); /* Move off-screen right */
-    }
-}
-
-.txt h1 {
+.txt h1, .txt1 h1 {
     color: #3498db;
     font-weight: bold;
+    font-size: 100px;
     margin: 20px;
 }
 
-.txt p {
+.txt p, .txt1 p {
     font-weight: bold;
     font-size: 20px;
 }
 
-img {
+.img {
     transform: scale(1.5, 1.5);
     animation-name: zoomin;
     animation-duration: 40s;
@@ -186,106 +123,192 @@ img {
     }
 }
 
+.container-cont {
+    justify-content: flex-start;
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    padding-top: 60%;
+    
+    margin-top: 20px; /* Add some margin to ensure it's below the carousel */
+}
+
 @media screen and (max-width: 800px) {
     .myslider {
         height: 500px;
     }
 
-    .txt {
+    .txt, .txt1 {
         font-size: 20px;
-        animation-duration: 16s; /* Adjust duration for smaller screens */
-    }
-
-    @keyframes moveText {
-        0% {
-            transform: translateX(-100%); /* Start off-screen left */
-        }
-        100% {
-            transform: translateX(100%); /* Move off-screen right */
-        }
     }
 }
 
 @media screen and (max-width: 500px) {
-    .txt {
+    .txt, .txt1 {
         font-size: 15px;
-        animation-duration: 12s; /* Adjust duration for smallest screens */
     }
 }
 
 </style>
+<body>
+  
+
 
 <div class="slider">
     <div class="myslider" style="display: block;">
       <div class="txt">
-        <h1>Image!</h1>
+        <h1>Fruits</h1>
         <p>
-          web Developer<br />Subscribe to our newsletter and get the latest
-          news and updates /
+          Purchase fruits of your own liking at very <br> a affordable prices wih a click of a button
         </p>
       </div>
-    
-    <img src="{% static 'image1.webp' %}" style="width: 100%; height: 100%" />
+      <img src="{% static 'image1.webp' %}" class="img" style="width: 100%; height: 100%;" />
     </div>
-    <div class="myslider fade">
-      <div class="txt">
-        <h1>Image2</h1>
+    <div class="myslider">
+      <div class="txt1">
+        <h1>Vegetables</h1>
         <p>
-          web Developer<br />Subscribe to our newsletter and get the latest
-          news and updates /
+          Green and Fresh vegetables <br> at your doorstep
         </p>
       </div>
-    
-    <img src="{% static 'image2.avif' %}" style="width: 100%; height: 100%" />
+      <img src="{% static 'image2.avif' %}" class="img" style="width: 100%; height: 100%;" />
     </div>
     <div class="myslider">
       <div class="txt">
-        <h1>Image3</h1>
+        <h1>Spices</h1>
         <p>
-          web Developer<br />Subscribe to our newsletter and get the latest
-          news and updates /
+          Spices that will make your food <br> taste better.
         </p>
       </div>
-    
-    <img src="%{ static 'image3.avif' %}" style="width: 100%; height: 100%" />
+      <img src="{% static 'image3.avif' %}" class="img" style="width: 100%; height: 100%;" />
     </div>
-    <div class="myslider fade">
-      <div class="txt">
-        <h1>Image4</h1>
+    <div class="myslider">
+      <div class="txt1">
+        <h1>Cereals</h1>
         <p>
-          web Developer<br />Subscribe to our newsletter and get the latest
-          news and updates /
+          Cereals that will make your day <br> a good one
         </p>
       </div>
-    
-    <img src="{% static 'image4.jpeg' %}" style="width: 100%; height: 100%" />
+      <img src="{% static 'image4.jpeg' %}" class="img" style="width: 100%; height: 100%;" />
     </div>
-    <div class="myslider fade">
+    <div class="myslider">
       <div class="txt">
         <h1>Image5</h1>
         <p>
-          web Developer<br />Subscribe to our newsletter and get the latest
-          news and updates /
+          Web Developer<br />Subscribe to our newsletter and get the latest news and updates
         </p>
       </div>
-    
-    <img src="{% static 'image5.avif' %}" style="width: 100%; height: 100%" />
+      <img src="{% static 'image5.avif' %}" class="img" style="width: 100%; height: 100%;" />
     </div>
 
-    <a  class="next" onclick="plusSlides(1)">&#10095</a>
-    <a  class="prev" onclick="plusSlides(1)">&#10094</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 
-      <div class="dotsbox"  style="text-align: center;">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
-          <span class="dot" onclick="currentSlide(5)"></span>
+    <div class="dotsbox" style="text-align: center;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+</div>
+
+<div class="container-cont">
+  <!-- <p>The categories you can shop in are as follows:</p> -->
+    <div class="cont">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'image1.webp' %}" class="card-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Fruits</h5>
+                        <p class="card-text">
+                            Purchase fruits of your own liking at very a affordable prices wih a click of a button
+                        </p>
+                        <a href="{% url 'home' %}" class="btn btn-primary">View Products</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other categories -->
+        </div>
+    </div>
+
+    <div class="cont">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                  <img src="{% static 'image1.webp' %}" class="card-img" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Fruits</h5>
+                      <p class="card-text">
+                          Purchase fruits of your own liking at very a affordable prices wih a click of a button
+                      </p>
+                      <a href="{% url 'home' %}" class="btn btn-primary">View Products</a>
+                  </div>
+              </div>
+          </div>
+          <!-- Repeat similar blocks for other categories -->
       </div>
- 
   </div>
-  <script>
-    const myslde = document.querySelectorAll(".myslider");
+
+  <div class="cont">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'image1.webp' %}" class="card-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Fruits</h5>
+                    <p class="card-text">
+                        Purchase fruits of your own liking at very a affordable prices wih a click of a button
+                    </p>
+                    <a href="{% url 'home' %}" class="btn btn-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat similar blocks for other categories -->
+    </div>
+</div>
+<div class="cont">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="{% static 'image1.webp' %}" class="card-img" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Fruits</h5>
+                  <p class="card-text">
+                      Purchase fruits of your own liking at very a affordable prices wih a click of a button
+                  </p>
+                  <a href="{% url 'home' %}" class="btn btn-primary">View Products</a>
+              </div>
+          </div>
+      </div>
+      <!-- Repeat similar blocks for other categories -->
+  </div>
+</div>
+<div class="cont">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="{% static 'image1.webp' %}" class="card-img" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Fruits</h5>
+                  <p class="card-text">
+                      Purchase fruits of your own liking at very a affordable prices wih a click of a button
+                  </p>
+                  <a href="{% url 'home' %}" class="btn btn-primary">View Products</a>
+              </div>
+          </div>
+      </div>
+      <!-- Repeat similar blocks for other categories -->
+  </div>
+</div>
+</div>
+</body>
+
+<script>
+const myslde = document.querySelectorAll(".myslider");
 const dots = document.querySelectorAll(".dot");
 
 let counter = 1;
@@ -332,7 +355,6 @@ function slidefun(n) {
   myslde[counter - 1].style.display = "block";
   dots[counter - 1].classList.add("active");
 }
-
-  </script>
+</script>
 
 {% endblock %}
